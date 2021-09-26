@@ -73,7 +73,7 @@
             const y = Math.random() * this._gameHeight;
             const rotation = Math.random() * Math.PI * 2;
 
-            this._wastes.push(this._graphicalItemFactory.createWaste(1, { x, y }, rotation, this.wasteSpeed));
+            this._wastes.push(this._graphicalItemFactory.createWaste(1, { x, y }, rotation, this._wasteSpeed));
 
             this.createWaste();
 
