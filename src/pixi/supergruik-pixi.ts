@@ -31,6 +31,7 @@
     /**
      * Constructor
      * @param coordinates Initial coordinates of SuperGruik
+     * @param parent PIXI layer where SuperGruik has to be drawn
      */
     constructor(coordinates: { x: number, y: number }, parent: PIXI.Container);
     constructor(coordinates: Coordinates, parent: PIXI.Container)

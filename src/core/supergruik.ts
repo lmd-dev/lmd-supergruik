@@ -3,7 +3,6 @@
     //Supergruik's Power status
     private _power: number;
     public get power(): number { return this._power; }
-    public set power(value: number) { this._power = value; }
 
     //SuperGruik moving speed
     private _speed: number;
@@ -13,15 +12,14 @@
     //Is supergruik engaged with a target
     private _engaged: boolean;
     public get engaged(): boolean { return this._engaged; }
-    public set engaged(value: boolean) { this._engaged = value; }
 
     //Coordinates of the target
     private _targetCoordinates: Coordinates | null;
     public get targetCoordinates(): Coordinates | null { return this._targetCoordinates; }
-    public set targetCoordinates(value: Coordinates | null) { this._targetCoordinates = value; }
 
     /**
      * Constructor
+     * @param coordinates: Initial coordinates of SuperGruik
      */
     constructor(coordinates: Coordinates)
     {
@@ -41,8 +39,8 @@
     {
         if (this.power > 0)
         {
-            this.engaged = true;
-            this.targetCoordinates = new Coordinates(targetCoordinates);
+            this._engaged = true;
+            this._targetCoordinates = new Coordinates(targetCoordinates);
         }
     }
 
@@ -51,8 +49,8 @@
      */
     stopFire()
     {
-        this.engaged = false;
-        this.targetCoordinates = null;
+        this._engaged = false;
+        this._targetCoordinates = null;
     }
 
     /**

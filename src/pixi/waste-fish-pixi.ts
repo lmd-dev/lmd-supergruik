@@ -14,6 +14,8 @@
      * Constructor
      * @param coordinates Initial coordinates of the waste
      * @param rotation Initial angle of rotation of the waste
+     * @param speed Initial speed of the waste
+     * @param parent PIXI layer where the waste has to be drawn
      */
     constructor(coordinates: { x: number, y: number }, rotation: number, speed: number, parent: PIXI.Container);
     constructor(coordinates: Coordinates, rotation: number, speed: number, parent: PIXI.Container)

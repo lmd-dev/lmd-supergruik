@@ -3,7 +3,6 @@
     //Value of the waste when destroyed
     private _value: number;
     public get value(): number { return this._value; }
-    public set value(value: number) { this._value = value; }
 
     //Speed of the waste on the game area
     private _speed: number;
@@ -12,9 +11,12 @@
 
     /**
      * Constructor
-     * @param x Initial X coordinates of the item
-     * @param y Initial Y coordinates of the item
-     * @param lifePoints Initial life points of the item
+     * @param coordinates Initial coordinates of the waste
+     * @param rotation Initial angle of rotation of the waste
+     * @param spriteURL URL of the sprite using to draw the waste
+     * @param scale Displaying scale of the waste
+     * @param value Value of the waste
+     * @param speed Initial speed of the waste
      */
     constructor(coordinates: { x: number, y: number }, rotation: number, spriteURL: string, scale: number, value: number, speed: number)
     constructor(coordinates: Coordinates, rotation: number, spriteURL: string, scale: number, value: number, speed: number)

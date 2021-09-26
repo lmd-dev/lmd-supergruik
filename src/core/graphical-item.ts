@@ -1,8 +1,8 @@
 ﻿abstract class GraphicalItem
 {
+    //2D coordinates of the graphical item
     private _coordinates: Coordinates;
     public get coordinates(): Coordinates { return this._coordinates; }
-    public set coordinates(value: Coordinates) { this._coordinates = value; }
 
     //Rotation angle of the item
     private _rotation: number;
@@ -21,8 +21,10 @@
 
     /**
      * Constructor
-     * @param coordinates Initial Coordinates of the item
-     * @param lifePoints Initial life points of the item
+     * @param coordinates Initial coordinates of the item
+     * @param rotation Initial angle of rotation of the item
+     * @param spriteURL URL of the sprite using to draw the item
+     * @param scale Displaying scale of the item
      */
     constructor(coordinates: { x: number, y: number }, rotation: number, spriteURL: string, scale: number);
     constructor(coordinates: Coordinates, rotation: number, spriteURL: string, scale: number)
