@@ -63,7 +63,7 @@
     /**
      * Creates new wastes at random time interval
      */
-    createWaste()
+    private createWaste()
     {
         clearTimeout(this._timerWaste);
 
@@ -83,7 +83,7 @@
     /**
      * destroyes wastes which are out of the screen
      */
-    destroyWastes()
+    private destroyWastes()
     {
         for (let i = 0; i < this._wastes.length; ++i)
         {
@@ -170,5 +170,7 @@
         });
 
         this._superGruik.update(elapsedTime);
+
+        this.destroyWastes();
     }
 }

@@ -71,7 +71,7 @@
     /**
      * Updates lasers
      */
-    updateLasers()
+    private updateLasers()
     {
         this.removeLasers();
 
@@ -99,7 +99,7 @@
     /**
      * Removes lasers from the scene
      */
-    removeLasers()
+    private removeLasers()
     {
         if (this.leftLaser)
         {
@@ -119,7 +119,7 @@
      * @param from First coordinates of the laser
      * @param to Last coordinates of the laser
      */
-    createLaser(from: Coordinates, to: Coordinates): PIXI.DisplayObject[]
+    private createLaser(from: Coordinates, to: Coordinates): PIXI.DisplayObject[]
     {
         const items: PIXI.DisplayObject[] = [];
 
@@ -138,7 +138,7 @@
     /**
      * Returns the coordinates of the SupuerGruik eyes
      */
-    getEyesCoordinates(): { left: Coordinates, right: Coordinates }
+    private getEyesCoordinates(): { left: Coordinates, right: Coordinates }
     {
         const { x, y } = this.coordinates;
 

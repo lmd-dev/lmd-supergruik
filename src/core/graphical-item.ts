@@ -9,15 +9,15 @@
     public get rotation(): number { return this._rotation; }
     public set rotation(value: number) { this._rotation = value; }
 
-    //URL of the sprite to use
-    private _spriteURL: string;
-    public get spriteURL(): string { return this._spriteURL; }
-    public set spriteURL(value: string) { this._spriteURL = value; }
-
     //Scale to apply to the sprite
     private _scale: number;
     public get scale(): number { return this._scale; }
     public set scale(value: number) { this._scale = value; }
+
+    //URL of the sprite to use
+    private _spriteURL: string;
+    public get spriteURL(): string { return this._spriteURL; }
+    public set spriteURL(value: string) { this._spriteURL = value; }
 
     /**
      * Constructor

@@ -57,7 +57,7 @@ class ViewGame implements Observer
     /**
      * Initializes main events of the view
      */
-    initializeEvents()
+    private initializeEvents()
     {
         //KeyDown event
         window.addEventListener("keydown", (event) =>
@@ -97,7 +97,7 @@ class ViewGame implements Observer
     /**
      * Starts the game
      */
-    start()
+    private start()
     {
         this._controllerGame.startGame(new GraphicalItemPixiFactory(this.superGruikLayer, this.wastesLayer), this.app.view.width, this.app.view.height);
 
