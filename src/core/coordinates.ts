@@ -30,7 +30,7 @@ class Coordinates implements ICoordinates
      * Moves the coordinates from vector values
      * @param vector Vector to use to move the coordinates
      */
-    move(vector: ICoordinates): void
+    move(vector: ICoordinates)
     {
         this.x += vector.x;
         this.y += vector.y;

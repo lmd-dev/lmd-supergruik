@@ -65,8 +65,7 @@ class ControllerGame extends Notifier
     /**
      * SuperGruik engages the target at the given coordinates
      */
-    startFire(coordinates: { x: number, y: number }): void;
-    startFire(coordinates: Coordinates): void
+    startFire(coordinates: ICoordinates)
     {
         this.game?.startFire(coordinates);
     }
@@ -75,8 +74,7 @@ class ControllerGame extends Notifier
      * Updates the position of the target to engage
      * @param coordinates New coordinates of the target
      */
-    updateFire(coordinates: { x: number, y: number }): void;
-    updateFire(coordinates: Coordinates): void
+    updateFire(coordinates: ICoordinates)
     {
         if(this.game?.isSuperGruikEngaged())
         this.game?.updateFire(coordinates);

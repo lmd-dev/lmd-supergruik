@@ -142,8 +142,7 @@
      * Engages SuperGruik with a target 
      * @param targetCoordinates Coordinates of the target to engage
      */
-    startFire(targetCoordinates: { x: number, y: number }): void;
-    startFire(targetCoordinates: Coordinates): void
+    startFire(targetCoordinates: ICoordinates)
     {
         this._superGruik?.startFire(targetCoordinates);
     }
@@ -152,8 +151,7 @@
      * Updates the position of the target to engage
      * @param targetCoordinates New coordinates of the target
      */
-    updateFire(targetCoordinates: { x: number, y: number }): void;
-    updateFire(targetCoordinates: Coordinates): void
+    updateFire(targetCoordinates: ICoordinates)
     {
         this._superGruik?.startFire(targetCoordinates);
     }
@@ -161,8 +159,7 @@
     /**
      * Stops SuperGruik lasers
      */
-    stopFire(): void;
-    stopFire(): void
+    stopFire()
     {
         this._superGruik?.stopFire();
     }
