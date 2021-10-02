@@ -9,6 +9,10 @@
     public get speed(): number { return this._speed; }
     public set speed(value: number) { this._speed = value; }
 
+    //Sounds playable by the waste on destruction
+    private _sounds: HTMLAudioElement[];
+    public get sounds(): HTMLAudioElement[] { return this._sounds; }
+
     /**
      * Constructor
      * @param coordinates Initial coordinates of the waste
@@ -18,13 +22,26 @@
      * @param value Value of the waste
      * @param speed Initial speed of the waste
      */
-    constructor(coordinates: { x: number, y: number }, rotation: number, spriteURL: string, scale: number, value: number, speed: number)
-    constructor(coordinates: Coordinates, rotation: number, spriteURL: string, scale: number, value: number, speed: number)
+    constructor(coordinates: ICoordinates, rotation: number, spriteURL: string, scale: number, value: number, speed: number)
     {
         super(coordinates, rotation, spriteURL, scale);
 
         this._value = value;
         this._speed = speed;
+        this._sounds = [];
+    }
+
+    /**
+     * Adds sound file to the sounds collection
+     * @param fileName Path to the file to append
+     */
+    addSound(fileName: string)
+    {
+        const sound = document.createElement("audio");
+        sound.src = fileName;
+        sound.preload = "auto";
+
+        this._sounds.push(sound);
     }
 
     /**
@@ -34,5 +51,18 @@
     update(elapsedTime: number)
     {
         this.coordinates.move({ x: elapsedTime * -this._speed, y: 0 });
+    }
+
+    /**
+     * Called when the waste is destroyed
+     */
+    destroy()
+    {
+        if (this.sounds.length)
+        {
+            const iSound = Math.floor(Math.random() * this.sounds.length);
+
+            this.sounds[iSound].play();
+        }
     }
 }

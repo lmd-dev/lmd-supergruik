@@ -94,6 +94,15 @@
                 this._wastes.splice(i, 1);
                 --i;
             }
+            else if (this._superGruik.engaged && this._superGruik.targetCoordinates)
+            {
+                if (waste.contains(this._superGruik.targetCoordinates))
+                {
+                    waste.destroy();
+                    this._wastes.splice(i, 1);
+                    --i;
+                }
+            }
         }
     }
 

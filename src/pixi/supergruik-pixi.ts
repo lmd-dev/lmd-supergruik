@@ -33,8 +33,7 @@
      * @param coordinates Initial coordinates of SuperGruik
      * @param parent PIXI layer where SuperGruik has to be drawn
      */
-    constructor(coordinates: { x: number, y: number }, parent: PIXI.Container);
-    constructor(coordinates: Coordinates, parent: PIXI.Container)
+    constructor(coordinates: ICoordinates, parent: PIXI.Container)
     {
         super(coordinates);
 
@@ -119,7 +118,7 @@
      * @param from First coordinates of the laser
      * @param to Last coordinates of the laser
      */
-    private createLaser(from: Coordinates, to: Coordinates): PIXI.DisplayObject[]
+    private createLaser(from: ICoordinates, to: ICoordinates): PIXI.DisplayObject[]
     {
         const items: PIXI.DisplayObject[] = [];
 
@@ -136,23 +135,18 @@
     }
 
     /**
-     * Returns the coordinates of the SupuerGruik eyes
-     */
-    private getEyesCoordinates(): { left: Coordinates, right: Coordinates }
-    {
-        const { x, y } = this.coordinates;
-
-        return {
-            left: new Coordinates({ x: x + 163 * this.scale, y: y + 41 * this.scale }),
-            right: new Coordinates({ x: x+ 163 * this.scale, y: y + 64 * this.scale})
-        }
-    }
-
-    /**
      * Destroyes SuperGruik from the PIXI scene
      */
     destroy()
     {
         this.parent.removeChild(this.container);
+    }
+
+    /**
+     * Returns the shape containing SuperGruik sprite
+     */
+    getBounds(): Shape
+    {
+        return PixiTools.PixiRectangleToShape(this.sprite.getBounds());        
     }
 }

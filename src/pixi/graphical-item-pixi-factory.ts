@@ -27,8 +27,7 @@
      * @param coordinates Initial coordinates of the waste
      * @param rotation Initial angle of rotation of the waste
      */
-    createWaste(type: WasteType, coordinates: { x: number; y: number; }, rotation: number, speed: number): Waste;
-    createWaste(type: WasteType, coordinates: Coordinates, rotation: number, speed: number): Waste
+    createWaste(type: WasteType, coordinates: ICoordinates, rotation: number, speed: number): Waste
     {
         switch (type)
         {
@@ -42,8 +41,7 @@
      * Creates a superGruik
      * @param coordinates Initiales coordinates of superGruik
      */
-    createSuperGruik(coordinates: { x: number; y: number; }): SuperGruik;
-    createSuperGruik(coordinates: Coordinates): SuperGruik
+    createSuperGruik(coordinates: ICoordinates): SuperGruik
     {
         return new SuperGruikPixi(coordinates, this.superGruikLayer);
     }

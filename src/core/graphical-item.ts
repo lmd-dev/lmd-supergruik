@@ -26,13 +26,17 @@
      * @param spriteURL URL of the sprite using to draw the item
      * @param scale Displaying scale of the item
      */
-    constructor(coordinates: { x: number, y: number }, rotation: number, spriteURL: string, scale: number);
-    constructor(coordinates: Coordinates, rotation: number, spriteURL: string, scale: number)
+    constructor(coordinates: ICoordinates, rotation: number, spriteURL: string, scale: number)
     {
         this._coordinates = new Coordinates(coordinates);
         this._rotation = rotation;
         this._spriteURL = spriteURL;
         this._scale = scale;
+    }
+
+    contains(point: ICoordinates): boolean
+    {
+        return this.getBounds().contains(point);
     }
 
     /**
@@ -45,4 +49,11 @@
      * What to do on destroy ?
      */
     abstract destroy(): void;
+
+    /**
+     * Returns the shape of the item which can be used on collision computing
+     */
+    abstract getBounds(): Shape;
+
+
 }

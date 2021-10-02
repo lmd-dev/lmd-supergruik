@@ -62,10 +62,10 @@ class ViewGame implements Observer
         //KeyDown event
         window.addEventListener("keydown", (event) =>
         {
-            switch (event.keyCode)
+            switch (event.code)
             {
-                case 38: this._controllerGame.moveUpSuperGruik(); break;
-                case 40: this._controllerGame.moveDownSuperGruik(); break;
+                case "ArrowUp": this._controllerGame.moveUpSuperGruik(); break;
+                case "ArrowDown": this._controllerGame.moveDownSuperGruik(); break;
             }
         });
 
