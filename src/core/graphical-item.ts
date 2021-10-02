@@ -34,6 +34,10 @@
         this._scale = scale;
     }
 
+    /**
+     * Indicates if the item contains the given coordinates
+     * @param point Coordinates to test
+     */
     contains(point: ICoordinates): boolean
     {
         return this.getBounds().contains(point);
