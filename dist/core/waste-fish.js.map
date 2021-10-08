@@ -1,0 +1,1 @@
+{"version":3,"file":"waste-fish.js","sourceRoot":"","sources":["../../src/core/waste-fish.ts"],"names":[],"mappings":";AAAA,MAAe,SAAU,SAAQ,KAAK;IAElC;;;;;OAKG;IACH,YAAY,WAAyB,EAAE,QAAgB,EAAE,KAAa;QAElE,KAAK,CAAC,WAAW,EAAE,QAAQ,EAAE,4BAA4B,EAAE,GAAG,EAAE,GAAG,EAAE,KAAK,CAAC,CAAC;QAE5E,IAAI,CAAC,QAAQ,CAAC,mBAAmB,CAAC,CAAC;IACvC,CAAC;CACJ"}
