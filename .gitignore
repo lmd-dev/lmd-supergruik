@@ -3,3 +3,4 @@ lmd-supergrouik.sln
 /dist/**/*.js
 !/dist/libs/pixi.
 *.map
+Web.config
