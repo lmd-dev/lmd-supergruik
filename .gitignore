@@ -1,4 +1,5 @@
 ﻿.vs/
 lmd-supergrouik.sln
 /dist/**/*.js
-!/dist/libs/pixi.js
+!/dist/libs/pixi.
+*.map
