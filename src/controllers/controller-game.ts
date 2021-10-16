@@ -87,4 +87,44 @@ class ControllerGame extends Notifier
     {
         this.game?.stopFire();
     }
+
+    /**
+     * Returns the Supergruik's remainnig amount of power
+     */
+    getSuperGruikPowerValue(): number
+    {
+        return this.game?.getSuperGruikPowerValue() ?? 0;
+    }
+
+    /**
+     * Indicates if Supergruik's eyes are overloaded
+     */
+    isSuperGruikOverloaded(): boolean
+    {
+        return this.game?.isSuperGruikOverloaded() ?? false;
+    }
+
+    /**
+     * Returns the moving speed of the waste on the beach
+     */
+    getWasteSpeed(): number
+    {
+        return this.game?.wasteSpeed ?? 0;
+    }
+
+    /**
+     * Returns the Supergruik's remaining points of life
+     */
+    getSuperGruikLife(): number
+    {
+        return this.game?.getSuperGruikLife() ?? 0;
+    }
+
+    /**
+     * Returns the score of the player
+     */
+    getScore(): number
+    {
+        return this.game?.score ?? 0;
+    }
 }

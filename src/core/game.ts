@@ -12,6 +12,7 @@
 
     //Speed of the wastes on the game
     private _wasteSpeed: number;
+    public get wasteSpeed(): number { return this._wasteSpeed; }
 
     //Width of the drawing area
     private _gameWidth: number;
@@ -93,14 +94,19 @@
                 waste.destroy();
                 this._wastes.splice(i, 1);
                 --i;
+
+                this._superGruik.hit();
             }
             else if (this._superGruik.engaged && this._superGruik.targetCoordinates)
             {
                 if (waste.contains(this._superGruik.targetCoordinates))
                 {
+                    this._score += waste.value;
+
                     waste.destroy();
                     this._wastes.splice(i, 1);
                     --i;
+
                 }
             }
         }
@@ -178,5 +184,29 @@
         this._superGruik.update(elapsedTime);
 
         this.destroyWastes();
+    }
+
+    /**
+     * Returns the Supergruik's remainnig amount of power
+     */
+    getSuperGruikPowerValue(): number
+    {
+        return this._superGruik.power;
+    }
+
+    /**
+     * Indicates if Supergruik's eyes are overloaded
+     */
+    isSuperGruikOverloaded(): boolean
+    {
+        return this._superGruik.overloaded;
+    }
+
+    /**
+     * Returns the Supergruik's remaining points of life
+     */
+    getSuperGruikLife(): number
+    {
+        return this._superGruik.life;
     }
 }

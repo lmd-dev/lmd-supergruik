@@ -1,8 +1,16 @@
 ﻿abstract class SuperGruik extends GraphicalItem
 {
+    private _life: number;
+    public get life(): number { return this._life; }
+
+    private readonly _powerSpeed = 10;
+
     //Supergruik's Power status
     private _power: number;
     public get power(): number { return this._power; }
+
+    private _overloaded: boolean;
+    public get overloaded(): boolean { return this._overloaded; }
 
     //SuperGruik moving speed
     private _speed: number;
@@ -28,8 +36,10 @@
     {
         super(coordinates, 0, "img/sprites/supergruik.png", 1);
 
+        this._life = 3;
         this._speed = 0;
         this._power = 100;
+        this._overloaded = false;
         this._engaged = false;
         this._targetCoordinates = null;
 
@@ -44,7 +54,7 @@
      */
     startFire(targetCoordinates: ICoordinates)
     {
-        if (this.power > 0)
+        if (this.power > 0 && !this.overloaded)
         {
             this._targetCoordinates = new Coordinates(targetCoordinates);
 
@@ -74,6 +84,27 @@
     update(elapsedTime: number)
     {
         this.coordinates.move({ x: 0, y: elapsedTime * this.speed });
+
+        if (this.engaged)
+        {
+            this._power = Math.max(0, this._power - elapsedTime * this._powerSpeed);
+
+            if (this._power === 0)
+            {
+                this.stopFire();
+                this._overloaded = true;
+            }
+        }
+        else
+        {
+            if (this._power < 100)
+            {
+                this._power = Math.min(100, this._power + elapsedTime * this._powerSpeed);
+
+                if (this._power === 100)
+                    this._overloaded = false;
+            }
+        }
     }
 
     /**
@@ -87,5 +118,13 @@
             left: new Coordinates({ x: x + 163 * this.scale, y: y + 41 * this.scale }),
             right: new Coordinates({ x: x + 163 * this.scale, y: y + 64 * this.scale })
         }
+    }
+
+    /**
+     * Hits SuperGruik and removes him one point of life
+     */
+    public hit()
+    {
+        this._life = Math.max(0, this._life - 1);
     }
 }

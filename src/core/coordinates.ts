@@ -56,11 +56,11 @@ class Coordinates implements ICoordinates
         //Changement de repere :
         this.move(new Coordinates({ x: -center.x, y: -center.y }));
 
-        var temp = new Coordinates({ x: 0, y: 0 });
+        const temp = new Coordinates({ x: 0, y: 0 });
         temp.copy(this);
 
         //Rotation sur Z :
-        if (angleZ != 0)
+        if (angleZ !== 0)
         {
             temp.x = this.x * Math.cos(angleZ) - this.y * Math.sin(angleZ);
             temp.y = this.x * Math.sin(angleZ) + this.y * Math.cos(angleZ);
@@ -77,6 +77,6 @@ class Coordinates implements ICoordinates
      */
     isEqual(coordinates: ICoordinates)
     {
-        return (this.x == coordinates.x && this.y == coordinates.y)
+        return (this.x === coordinates.x && this.y === coordinates.y)
     }
 }

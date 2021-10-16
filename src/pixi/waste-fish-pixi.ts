@@ -49,6 +49,8 @@
         super.destroy();
 
         this.parent.removeChild(this.sprite);
+
+        this.sprite.destroy();
     }
 
     /**
